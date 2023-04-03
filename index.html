@@ -8,6 +8,64 @@
     <script src="main.js" defer></script>
 </head>
 <body>
-    
+    <header>
+        <H1 class="pageTitle">ToDo List</H1>
+    </header>
+
+    <div class="middleContainer">
+        <nav class="sidebar">
+            <div class="default-groups">
+                <div class="inbox">Inbox</div>
+            </div>
+            <h2 class="projectsTitle">Projects</h2>
+            <div class="projectsContainer">
+                
+            </div>
+            <div class="btnContainer">
+                <button class="addProject">Add New Project</button>
+            </div>
+        </nav>
+        <main class="mainContent">
+            <h2>Tasks</h2>
+            <div class="">
+
+            </div>
+            <button class="newTaskBtn">New Task</button>
+        </main>
+    </div>
+
+    <footer>
+        <p class="credits">Created by Misael Guerrero</p>
+    </footer>
+
+    <div class="modals">
+        <dialog class="modal">
+            <form  class="taskForm">
+                <h2 class="formTitle">Enter your new task below</h2>
+
+                <div class="duo">
+                    <label for="task">New Task</label>
+                    <input type="text" id="task">
+                </div>
+
+                <input id="submitTask" type="submit" value="Add">
+                <button class="cancelTask">Cancel</button>
+            </form>
+        </dialog>
+
+        <dialog class="projectModal">
+            <form class="projectForm">
+                <h2 class="formTitle">Enter your new project below</h2>
+
+                <div class="duo">
+                    <label for="newProject">New Project</label>
+                    <input type="text" id="newProject">
+                </div>
+
+                <input type="submit" id="submitProject" value="Add">
+                <button class="cancelProject">Cancel</button>
+            </form>
+        </dialog>
+    </div>
 </body>
 </html>
