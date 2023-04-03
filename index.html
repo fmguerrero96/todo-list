@@ -11,6 +11,36 @@
 <body>
     <header>
         <H1 class="pageTitle">ToDo List</H1>
+
+        <div class="modals">
+            <dialog class="taskModal">
+                <form  class="taskForm">
+                    <h2 class="formTitle">Enter your new task below</h2>
+    
+                    <div class="duo">
+                        <label for="task">New Task</label>
+                        <input type="text" id="task">
+                    </div>
+    
+                    <input id="submitTask" type="submit" value="Add">
+                    <button class="cancelTask">Cancel</button>
+                </form>
+            </dialog>
+    
+            <dialog open class="projectModal">
+                <form class="projectForm">
+                    <h2 class="formTitle">Enter your new project below</h2>
+    
+                    <div class="duo">
+                        <label for="newProject">New Project</label>
+                        <input type="text" id="newProject">
+                    </div>
+    
+                    <input type="submit" id="submitProject" value="Add">
+                    <button class="cancelProject">Cancel</button>
+                </form>
+            </dialog>
+        </div>
     </header>
 
     <div class="middleContainer">
@@ -39,34 +69,5 @@
         <p class="credits">Created by Misael Guerrero</p>
     </footer>
 
-    <div class="modals">
-        <dialog class="modal">
-            <form  class="taskForm">
-                <h2 class="formTitle">Enter your new task below</h2>
-
-                <div class="duo">
-                    <label for="task">New Task</label>
-                    <input type="text" id="task">
-                </div>
-
-                <input id="submitTask" type="submit" value="Add">
-                <button class="cancelTask">Cancel</button>
-            </form>
-        </dialog>
-
-        <dialog class="projectModal">
-            <form class="projectForm">
-                <h2 class="formTitle">Enter your new project below</h2>
-
-                <div class="duo">
-                    <label for="newProject">New Project</label>
-                    <input type="text" id="newProject">
-                </div>
-
-                <input type="submit" id="submitProject" value="Add">
-                <button class="cancelProject">Cancel</button>
-            </form>
-        </dialog>
-    </div>
 </body>
 </html>
