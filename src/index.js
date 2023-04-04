@@ -1,6 +1,10 @@
-import { projectsArray } from "../../../todoFail/src/projectObjs";
+let projectsArray = [];
+const addProjectBtn = document.querySelector('.addProject')
+const projectModal = document.querySelector('.projectModal')
+const submitProjectBtn = document.querySelector('#submitProject')
+const projectsContainer = document.querySelector('.projectsContainer')
+const project = document.querySelector('#newProject')
 
-projectsArray = [];
 
 const projectFactory = (name, projectArray) => {
     return {name, projectArray}
@@ -22,7 +26,6 @@ function pushProjects() {
 }
 
 function displayProjects() {
-    const projectsContainer = document.querySelector('.projectsContainer')
     projectsArray.forEach(element => {
         let projectDiv = document.createElement('div')
         projectDiv.className = ('customProject')
@@ -31,3 +34,14 @@ function displayProjects() {
     });
 }
 
+addProjectBtn.addEventListener('click', () =>{
+    projectModal.showModal()
+})
+
+submitProjectBtn.addEventListener('click', function(event) {
+    event.preventDefault()
+    projectsContainer.innerHTML = ''
+    pushProjects()
+    projectModal.close()
+    project.value = ''
+})
