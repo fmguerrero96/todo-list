@@ -4,6 +4,7 @@ const projectModal = document.querySelector('.projectModal')
 const submitProjectBtn = document.querySelector('#submitProject')
 const projectsContainer = document.querySelector('.projectsContainer')
 const project = document.querySelector('#newProject')
+const projectContent = document.querySelector('.projectContent')
 
 
 const projectFactory = (name, projectArray) => {
@@ -20,6 +21,14 @@ const inboxDiv = document.createElement('div')
 inboxDiv.className = ('customProject')
 inboxDiv.textContent = inbox.name
 projectsContainer.appendChild(inboxDiv)
+let inboxTitle = document.createElement('div')
+let inboxBtn = document.createElement('button')
+inboxTitle.className = 'projectTitle'
+inboxTitle.textContent = inbox.name
+inboxBtn.className = 'taskBtn'
+inboxBtn.textContent = 'New Task'
+projectContent.appendChild(inboxTitle)
+projectContent.appendChild(inboxBtn)
 
 
 function pushProjects() {
@@ -32,8 +41,8 @@ function pushProjects() {
 function displayProjects() {
     projectsArray.forEach(element => {
         let projectDiv = document.createElement('div')
-        projectDiv.className = ('customProject')
         projectDiv.textContent = element.name
+        projectDiv.className = 'customProject'
         projectsContainer.appendChild(projectDiv)
     });
 }
@@ -48,4 +57,24 @@ submitProjectBtn.addEventListener('click', function(event) {
     pushProjects()
     projectModal.close()
     project.value = ''
+})
+
+/* -------------click events on project tabs---------------------------------- */
+
+function createProjectContent(projectName){
+    let projectTitle = document.createElement('div')
+    let taskBtn = document.createElement('button')
+    projectTitle.className = 'projectTitle'
+    projectTitle.textContent = projectName
+    taskBtn.className = 'taskBtn'
+    taskBtn.textContent = 'New Task'
+    projectContent.appendChild(projectTitle)
+    projectContent.appendChild(taskBtn)
+}
+
+document.addEventListener('click', e=> {
+    if (e.target.matches('.customProject')){
+        projectContent.innerHTML = ''
+        createProjectContent(e.target.textContent)
+    }
 })
