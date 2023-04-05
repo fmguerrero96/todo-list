@@ -11,6 +11,7 @@ const submitTaskBtn = document.querySelector('#submitTask')
 const task = document.querySelector('#task')
 const closeTaskBtn = document.querySelector('.cancelTask')
 const closeProjectBtn = document.querySelector('.cancelProject')
+const taskContainer = document.querySelector('.taskContainer')
 
 const projectFactory = (name, projectArray) => {
     return {name, projectArray}
@@ -85,7 +86,9 @@ function createProjectContent(projectName){
 document.addEventListener('click', e=>{
     if (e.target.matches('.customProject')){
         projectContent.innerHTML = ''
+        taskContainer.innerHTML = ''
         createProjectContent(e.target.textContent)
+        displayTasks(findArray())
         let projectTitle = document.querySelector('.projectTitle').textContent
         return projectTitle
     }
@@ -111,19 +114,29 @@ function pushTasks(array){
     let task = document.querySelector('#task').value
     const newTask = taskFactory(task)
     array.push(newTask)
-    //displayTasks()
+    displayTasks(findArray())
 }
 
 submitTaskBtn.addEventListener('click', function(event){
     event.preventDefault()
+    taskContainer.innerHTML = ''
     pushTasks(findArray())
     taskModal.close()
     task.value = ''
-    console.log(projectsArray)
-    
 })
 
 closeTaskBtn.addEventListener('click', (event) => {
     event.preventDefault()
     taskModal.close()
 })
+
+/* -------------displaying tasks---------------------------------- */
+
+function displayTasks(array){
+    array.forEach(element => {
+        let taskDiv = document.createElement('div')
+        taskDiv.textContent = element.name
+        taskDiv.className = 'newTask'
+        taskContainer.appendChild(taskDiv)
+    })
+}
