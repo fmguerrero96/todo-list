@@ -9,6 +9,8 @@ const taskButton = document.querySelector('.taskBtn')
 const taskModal = document.querySelector('.taskModal')
 const submitTaskBtn = document.querySelector('#submitTask')
 const task = document.querySelector('#task')
+const closeTaskBtn = document.querySelector('.cancelTask')
+const closeProjectBtn = document.querySelector('.cancelProject')
 
 const projectFactory = (name, projectArray) => {
     return {name, projectArray}
@@ -60,6 +62,11 @@ submitProjectBtn.addEventListener('click', function(event) {
     pushProjects()
     projectModal.close()
     project.value = ''
+})
+
+closeProjectBtn.addEventListener('click', (event) => {
+    event.preventDefault()
+    projectModal.close()
 })
 
 /* -------------click events on project tabs---------------------------------- */
@@ -116,10 +123,7 @@ submitTaskBtn.addEventListener('click', function(event){
     
 })
 
-/*submitProjectBtn.addEventListener('click', function(event) {
+closeTaskBtn.addEventListener('click', (event) => {
     event.preventDefault()
-    projectsContainer.innerHTML = ''
-    pushProjects()
-    projectModal.close()
-    project.value = ''
-}) */
+    taskModal.close()
+})
