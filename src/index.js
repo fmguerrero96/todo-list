@@ -47,11 +47,23 @@ function pushProjects() {
 function displayProjects() {
     projectsArray.forEach(element => {
         let projectDiv = document.createElement('div')
+        projectDiv.className = 'projectDiv'
+        projectDiv.innerHTML = `
+            <div class="customProject">${element.name}</div>
+            <button class="deleteProBtn">Delete</button> 
+        `
+        projectsContainer.appendChild(projectDiv)
+    })
+}
+
+/*function displayProjects() {
+    projectsArray.forEach(element => {
+        let projectDiv = document.createElement('div')
         projectDiv.textContent = element.name
         projectDiv.className = 'customProject'
         projectsContainer.appendChild(projectDiv)
     });
-}
+}*/
 
 addProjectBtn.addEventListener('click', () =>{
     projectModal.showModal()
@@ -89,8 +101,6 @@ document.addEventListener('click', e=>{
         taskContainer.innerHTML = ''
         createProjectContent(e.target.textContent)
         displayTasks(findArray())
-        let projectTitle = document.querySelector('.projectTitle').textContent
-        return projectTitle
     }
 })
 
@@ -139,4 +149,12 @@ function displayTasks(array){
         taskDiv.className = 'newTask'
         taskContainer.appendChild(taskDiv)
     })
-}
+
+}/* -------------deleting porjects ---------------------------------- */
+
+
+
+/*function deleteBook(index){
+    myLibrary.splice(index, 1);
+    renderBooks();
+} */
