@@ -138,6 +138,35 @@ closeTaskBtn.addEventListener('click', (event) => {
 /* -------------displaying tasks---------------------------------- */
 
 function displayTasks(array){
+   count = 0
+   for (let i = 0; i < array.length; i++){
+    let taskDiv = document.createElement('div')
+    taskDiv.className = 'newTask'
+    taskDiv.id = count
+    taskDiv.innerHTML = `
+        <div class='taskName'>${array[i].name}</div>
+        <button id='${count}' class='done'>Done</button>
+    `
+    taskContainer.appendChild(taskDiv)
+    count += 1
+   }
+}
+
+/*function displayProjects() {
+    count = 0
+    for (let i =0; i < projectsArray.length; i++) {
+        let projectDiv = document.createElement('div')
+        projectDiv.className = 'projectDiv'
+        projectDiv.innerHTML = `
+            <div class="customProject">${projectsArray[i].name}</div>
+            <button id='${count}' class="deleteProBtn"'>Delete</button> 
+        `
+        projectsContainer.appendChild(projectDiv)
+        count += 1
+    }
+} */
+
+/*function displayTasks(array){
     array.forEach(element => {
         let taskDiv = document.createElement('div')
         taskDiv.textContent = element.name
@@ -145,17 +174,19 @@ function displayTasks(array){
         taskContainer.appendChild(taskDiv)
     })
 
-}/* -------------deleting projects ---------------------------------- */
+} */
+/* -------------deleting projects ---------------------------------- */
 
 document.addEventListener('click', e => {
     if (e.target.matches('.deleteProBtn')){
-         deleteProject(e.target.id)
+         deleteItems(e.target.id, projectsArray)
     }
 })
 
-function deleteProject(index){
+function deleteItems(index, array){
     projectsArray.splice(index, 1);
     projectsContainer.innerHTML = ''
     displayProjects();
 }
+/* -------------deleting tasks ---------------------------------- */
 
