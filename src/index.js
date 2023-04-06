@@ -12,8 +12,6 @@ const task = document.querySelector('#task')
 const closeTaskBtn = document.querySelector('.cancelTask')
 const closeProjectBtn = document.querySelector('.cancelProject')
 const taskContainer = document.querySelector('.taskContainer')
-const deleteProBtn = document.querySelector('.deleteProBtn')
-const doneBtn = document.querySelector('.done')
 
 const projectFactory = (name, projectArray) => {
     return {name, projectArray}
