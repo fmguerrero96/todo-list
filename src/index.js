@@ -13,6 +13,7 @@ const closeTaskBtn = document.querySelector('.cancelTask')
 const closeProjectBtn = document.querySelector('.cancelProject')
 const taskContainer = document.querySelector('.taskContainer')
 const deleteProBtn = document.querySelector('.deleteProBtn')
+const doneBtn = document.querySelector('.done')
 
 const projectFactory = (name, projectArray) => {
     return {name, projectArray}
@@ -151,31 +152,7 @@ function displayTasks(array){
     count += 1
    }
 }
-
-/*function displayProjects() {
-    count = 0
-    for (let i =0; i < projectsArray.length; i++) {
-        let projectDiv = document.createElement('div')
-        projectDiv.className = 'projectDiv'
-        projectDiv.innerHTML = `
-            <div class="customProject">${projectsArray[i].name}</div>
-            <button id='${count}' class="deleteProBtn"'>Delete</button> 
-        `
-        projectsContainer.appendChild(projectDiv)
-        count += 1
-    }
-} */
-
-/*function displayTasks(array){
-    array.forEach(element => {
-        let taskDiv = document.createElement('div')
-        taskDiv.textContent = element.name
-        taskDiv.className = 'newTask'
-        taskContainer.appendChild(taskDiv)
-    })
-
-} */
-/* -------------deleting projects ---------------------------------- */
+/* -------------deleting projects and tasks---------------------------------- */
 
 document.addEventListener('click', e => {
     if (e.target.matches('.deleteProBtn')){
@@ -184,9 +161,15 @@ document.addEventListener('click', e => {
 })
 
 function deleteItems(index, array){
-    projectsArray.splice(index, 1);
+    array.splice(index, 1);
     projectsContainer.innerHTML = ''
     displayProjects();
 }
-/* -------------deleting tasks ---------------------------------- */
 
+document.addEventListener('click', e => {
+    if (e.target.matches('.done')){
+        deleteItems(e.target.id, findArray())
+        taskContainer.innerHTML = ''
+        displayTasks(findArray())
+    }
+})
