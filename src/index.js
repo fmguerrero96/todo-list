@@ -12,6 +12,7 @@ const task = document.querySelector('#task')
 const closeTaskBtn = document.querySelector('.cancelTask')
 const closeProjectBtn = document.querySelector('.cancelProject')
 const taskContainer = document.querySelector('.taskContainer')
+const deleteProBtn = document.querySelector('.deleteProBtn')
 
 const projectFactory = (name, projectArray) => {
     return {name, projectArray}
@@ -45,25 +46,19 @@ function pushProjects() {
 }
 
 function displayProjects() {
-    projectsArray.forEach(element => {
+    count = 0
+    for (let i =0; i < projectsArray.length; i++) {
         let projectDiv = document.createElement('div')
         projectDiv.className = 'projectDiv'
         projectDiv.innerHTML = `
-            <div class="customProject">${element.name}</div>
-            <button class="deleteProBtn">Delete</button> 
+            <div class="customProject">${projectsArray[i].name}</div>
+            <button id='${count}' class="deleteProBtn"'>Delete</button> 
         `
         projectsContainer.appendChild(projectDiv)
-    })
+        count += 1
+    }
 }
 
-/*function displayProjects() {
-    projectsArray.forEach(element => {
-        let projectDiv = document.createElement('div')
-        projectDiv.textContent = element.name
-        projectDiv.className = 'customProject'
-        projectsContainer.appendChild(projectDiv)
-    });
-}*/
 
 addProjectBtn.addEventListener('click', () =>{
     projectModal.showModal()
@@ -150,11 +145,17 @@ function displayTasks(array){
         taskContainer.appendChild(taskDiv)
     })
 
-}/* -------------deleting porjects ---------------------------------- */
+}/* -------------deleting projects ---------------------------------- */
 
+document.addEventListener('click', e => {
+    if (e.target.matches('.deleteProBtn')){
+         deleteProject(e.target.id)
+    }
+})
 
+function deleteProject(index){
+    projectsArray.splice(index, 1);
+    projectsContainer.innerHTML = ''
+    displayProjects();
+}
 
-/*function deleteBook(index){
-    myLibrary.splice(index, 1);
-    renderBooks();
-} */
