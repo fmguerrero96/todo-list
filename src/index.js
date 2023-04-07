@@ -24,7 +24,7 @@ const taskFactory = (name) => {
 const inbox = projectFactory('inbox', []);
 projectsArray.push(inbox)
 const inboxDiv = document.createElement('div')
-inboxDiv.className = ('customProject')
+inboxDiv.className = ('projectDiv')
 inboxDiv.textContent = inbox.name
 projectsContainer.appendChild(inboxDiv)
 let inboxTitle = document.createElement('div')

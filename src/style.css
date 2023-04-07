@@ -41,15 +41,6 @@ header {
     width: 20vw;
 }
 
-.default-groups {
-    display: flex;
-    flex-direction: column;
-    margin: 1rem 1rem 1rem 1rem;
-    justify-content: space-between;
-   /* height: 20vh;*/
-    padding: 1rem 0 1rem 1rem;
-}
-
 .projectsTitle {
     text-align: center;
     font-size: 1.5rem;
@@ -59,11 +50,27 @@ header {
     margin: 0 2rem 0 2rem ;
 }
 
-.projectsCont {
+.projectsContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: 1rem;
+}
+
+.projectDiv {
+    margin-top: .5rem;
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5px 0 5px;
+    height: 2rem;
+    border-radius: 10px;
+}
+
+.projectDiv:hover{
+    background-color: aliceblue;
 }
 
 .btnContainer{
