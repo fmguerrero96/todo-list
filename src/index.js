@@ -21,7 +21,7 @@ const taskFactory = (name) => {
     return {name}
 };
 
-const inbox = projectFactory('inbox', []);
+const inbox = projectFactory('Inbox', []);
 projectsArray.push(inbox)
 const inboxDiv = document.createElement('div')
 inboxDiv.className = ('projectDiv')

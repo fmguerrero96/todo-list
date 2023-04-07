@@ -92,7 +92,6 @@ header {
 
 .addProject {
     font-family: 'Quicksand', sans-serif;
-    width: 50%;
     cursor: pointer;
     background-color: aliceblue;
     color: black;
@@ -106,6 +105,28 @@ main {
     background-color: rgb(150, 150, 150);
     width: 80vw;
     color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.projectContent{
+    margin: 1rem 0 1rem 7rem;
+}
+
+.projectTitle{
+    font-size: 5vh;
+    font-weight: 700;
+}
+
+.taskBtn{
+    font-family: 'Quicksand', sans-serif;
+    cursor: pointer;
+    background-color: aliceblue;
+    color: black;
+    border: none;
+    height: 1.75rem;
+    width: 10%;
+    border-radius: 5px;
 }
 
 footer {
