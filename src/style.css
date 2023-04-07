@@ -66,12 +66,17 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 0 5px 0 5px;
-    height: 2rem;
+    height: 2.5rem;
     border-radius: 10px;
 }
 
 .projectDiv:hover{
     background-color: aliceblue;
+}
+
+.customProject {
+    width: 80%;
+    cursor: pointer;
 }
 
 .deleteProBtn{
@@ -170,4 +175,60 @@ footer {
 
 .credits {
     font-weight: 200;
+}
+
+.projectModal, .taskModal {
+    width: 30%;
+    height: 20%;
+    border-radius: 15px;
+}
+
+.projectModal::backdrop, .taskModal::backdrop{
+    background-color: rgb(1, 93, 192);
+    opacity: 40%;
+}
+
+
+.formTitle{
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.duo{
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+label {
+    margin-right: 2%;
+}
+
+#task, #newProject {
+    width: 50%;
+    height: 1.25rem;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+
+.buttonContainer{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8%;
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#submitTask, .cancelTask,
+#submitProject, .cancelProject {
+    font-family: 'Quicksand', sans-serif;
+    width: 48%;
+    background-color: rgb(55, 55, 55);
+    color: white;
+    cursor: pointer;
+    height: 1.75rem;
+    border: none;
+    border-radius: 8px;
 }
