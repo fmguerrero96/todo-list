@@ -170,4 +170,4 @@ document.addEventListener('click', e => {
         taskContainer.innerHTML = ''
         displayTasks(findArray())
     }
-})
+}) 
